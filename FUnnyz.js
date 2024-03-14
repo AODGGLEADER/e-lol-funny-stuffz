@@ -1,2 +1,5 @@
 ModAPI.require("player")
-alert(ModAPI.player.inventory.currentItem)
+ModAPI.addEventListener("update", function (){
+  ModAPI.displayToChat({msg:
+ModAPI.player.inventory.currentItem})
+})
