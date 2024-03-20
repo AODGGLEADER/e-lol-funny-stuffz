@@ -2,7 +2,11 @@
 ModAPI.events.newEvent('keyPress');
 ModAPI.events.listeners.keyPress = function(event) {
     if (event.key === 54) { // Keycode for right shift
-        displayClickGUI();
+        if (ModAPI.mcinstance.$currentScreen === null && ModAPI.mcinstance.$serverName !== null) {
+            displayClickGUI();
+        } else {
+            ModAPI.logger.loginfo({ message: "Not in a server or GUI already open." });
+        }
     }
 };
 
