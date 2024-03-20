@@ -10,7 +10,7 @@ ModAPI.events.listeners.keyPress = function(event) {
 function displayClickGUI() {
     let screenWidth = ModAPI.settings.overrideWidth; // Use screen width from settings
     let screenHeight = ModAPI.settings.overrideHeight; // Use screen height from settings
-    let guiWidth = 100; // Adjust as needed
+    let guiWidth = 400; // Adjust as needed
     let guiHeight = 50; // Adjust as needed
 
     let centerX = (screenWidth - guiWidth) / 2;
