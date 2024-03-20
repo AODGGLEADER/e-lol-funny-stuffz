@@ -17,8 +17,10 @@ function displayClickGUI() {
     let centerY = (screenHeight - guiHeight) / 2;
 
     // Draw rounded rectangle for GUI background with light blue color
-    ModAPI.GlStateManager.color({ color: 0x8080FF }); // Light blue color
-    ModAPI.GlStateManager.drawRoundedRect({ x: centerX, y: centerY, width: guiWidth, height: guiHeight, radius: 5 });
+    ModAPI.settings.pushMatrix();
+    ModAPI.settings.color({ color: 0x8080FF }); // Light blue color
+    ModAPI.settings.drawrect({ x: centerX, y: centerY, width: guiWidth, height: guiHeight });
+    ModAPI.settings.popMatrix();
 
     // Add text or buttons to the GUI using ModAPI's rendering functions like drawStringWithShadow
 }
