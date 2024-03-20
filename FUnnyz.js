@@ -1,14 +1,8 @@
-// Listen for right shift key press event
-ModAPI.events.newEvent('keyPress');
-ModAPI.events.listeners.keyPress = function(event) {
-    if (event.key === 54) { // Keycode for right shift
-        if (ModAPI.mcinstance.$currentScreen === null && ModAPI.mcinstance.$serverName !== null) {
-            displayClickGUI();
-        } else {
-            ModAPI.logger.loginfo({ message: "Not in a server or GUI already open." });
-        }
+ModAPI.addEventListener('keyPress', function(event) {
+    if (event.key === 'G') { // Change 'G' to the desired key
+        openClickGUI(); // Call the function to open the click GUI
     }
-};
+});
 
 // Function to display the click GUI at the center of the screen with a light blue color
 function displayClickGUI() {
@@ -27,4 +21,12 @@ function displayClickGUI() {
     ModAPI.settings.popMatrix();
 
     // Add text or buttons to the GUI using ModAPI's rendering functions like drawStringWithShadow
+
+    // Example: Display text in the center of the GUI
+    let text = "Click GUI";
+    let textWidth = ModAPI.settings.getStringWidth({ text: text });
+    let textX = centerX + (guiWidth - textWidth) / 2;
+    let textY = centerY + (guiHeight - ModAPI.settings.getFONT_HEIGHT()) / 2;
+
+    ModAPI.settings.drawStringWithShadow({ text: text, x: textX, y: textY, color: 0xFFFFFF }); // White color for text
 }
