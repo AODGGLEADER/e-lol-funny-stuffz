@@ -1,9 +1,3 @@
-ModAPI.addEventListener('keyPress', function(event) {
-    if (event.key === 'G') { // Change 'G' to the desired key
-        openClickGUI(); // Call the function to open the click GUI
-    }
-});
-
 // Function to display the click GUI at the center of the screen with a light blue color
 function displayClickGUI() {
     let screenWidth = ModAPI.settings.overrideWidth; // Use screen width from settings
@@ -30,3 +24,16 @@ function displayClickGUI() {
 
     ModAPI.settings.drawStringWithShadow({ text: text, x: textX, y: textY, color: 0xFFFFFF }); // White color for text
 }
+
+// Function to add an event listener for key press to trigger opening the click GUI
+ModAPI.events.newEvent('keyPress'); // Create a new event for key press
+
+// Function to handle key press event and open the click GUI
+function handleKeyPress(event) {
+    if (event.key === 'G') { // Adjust key as needed
+        displayClickGUI(); // Call the function to display the click GUI
+    }
+}
+
+// Call the function to handle key press event when it occurs
+ModAPI.events.callEvent('keyPress', handleKeyPress);
